@@ -2,6 +2,15 @@
 FROM nginx:alpine
 
 # Copiar configuração personalizada do Nginx
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d
 
-EXPOSE 80
+# DOCKERIZE - wait for other process
+ENV DOCKERIZE_VERSION=v0.9.2
+
+RUN apk update --no-cache \
+    && apk add --no-cache wget openssl \
+    && wget -O - https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz | tar xzf - -C /usr/local/bin \
+    && apk del wget
+
+CMD ["nginx", "-g", "daemon off;"]
