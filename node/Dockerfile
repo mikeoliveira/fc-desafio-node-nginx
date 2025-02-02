@@ -1,5 +1,5 @@
 #Imagem NODE Alphine com Alias - Builder
-FROM node:current-alpine3.20 AS builder
+FROM node:latest AS builder
 
 #Definindo diretorio de atuação
 WORKDIR /usr/src/app
