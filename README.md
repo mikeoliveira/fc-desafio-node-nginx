@@ -14,7 +14,9 @@ To download and run the minimal Golang Docker image from Docker Hub, follow thes
    npm install
    ```
 2. **Docker Compose**
-    
+
+    Inside the root Project folder run
+
     ```bash
     docker compose buid
     ```
@@ -22,9 +24,7 @@ To download and run the minimal Golang Docker image from Docker Hub, follow thes
     ```bash
     docker compose up
     ```
-
 3. **Access the application page**
-    
 
     ```bash
     http//localhost:8080
