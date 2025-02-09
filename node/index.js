@@ -43,7 +43,6 @@ const deletePerson = async (id) => {
 const generateTable = (rows) => {
     let html = '<h1>Full Cycle Rocks!</h1>';
     
-    // Add form for new name
     html += `
     <form action="/save" method="POST">
         <input type="text" name="name" placeholder="Digite um nome" required>
@@ -95,7 +94,6 @@ app.post('/save', async (req, res) => {
     try {
         const success = await insertPerson(name);
         if (success) {
-            // Redirect back to home page to see updated table
             res.redirect('/');
         } else {
             res.status(500).send('Erro ao salvar pessoa');
@@ -115,7 +113,6 @@ app.get('/delete/:id', async (req, res) => {
     try {
         const success = await deletePerson(id);
         if (success) {
-            // Redirect back to home page to see updated table
             res.redirect('/');
         } else {
             res.status(500).send('Erro ao excluir pessoa');
