@@ -123,7 +123,7 @@ app.get('/delete/:id', async (req, res) => {
 });
 
 app.listen(port, ()=> {
-    console.log('Rodando na porta ' + port)
+    //console.log('Rodando na porta ' + port)
 })
 
 // Tratamento adequado do fechamento da conexão
